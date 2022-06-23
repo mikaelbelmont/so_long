@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:38:51 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/22 15:42:45 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:35:51 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,13 @@ typedef struct s_window
 	t_images	floor_img;
 	t_images	exit_img;
 	t_images	player_img;
+	t_images	player_1_img;
+	t_images	player_2_img;
+
 	t_keys		keys;
 }t_window;
 
-int			ft_win_event(int keycode, t_window *window);
+//int			ft_win_event(int keycode, t_window *window);
 
 int			ft_map_prep(t_window *window, char **argv);
 char		**ft_mapstr(char **mapa, int fd, int counter);
@@ -111,10 +114,6 @@ void		ft_update_up(t_window *window);
 void		ft_update_down(t_window *window);
 
 int			ft_strlen(const char *str);
-char		*ft_strdup(const char *str);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		**ft_split(char const *s, char c);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 char		*get_next_line(int fd);
 int			searchn(char *buff);

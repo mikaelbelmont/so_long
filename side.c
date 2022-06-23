@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:24:33 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/22 15:42:10 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:36:04 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_update_left(t_window *window)
 {
 	if (window->keys.a && !window->keys.d && !window->keys.w && !window->keys.s)
 	{
+		window->player_img.img = window->player_2_img.img;
 		window->player_img.x -= window->player_img.speed;
 		if (window->mapa[(window->player_img.y / 64)] \
 		[(window->player_img.x / 64)] == '1')
@@ -30,8 +31,9 @@ void	ft_update_left(t_window *window)
 
 void	ft_update_right(t_window *window)
 {
-	if (!window->keys.a && window->keys.d && !window->keys.w && !window->keys.s)
+	if (window->keys.d && !window->keys.a && !window->keys.w && !window->keys.s)
 	{
+		window->player_img.img = window->player_1_img.img;
 		window->player_img.x += window->player_img.speed;
 		if (window->mapa[window->player_img.y / 64] \
 		[(window->player_img.x / 64)] == '1')
@@ -46,7 +48,7 @@ void	ft_update_right(t_window *window)
 
 void	ft_update_up(t_window *window)
 {
-	if (!window->keys.a && !window->keys.d && window->keys.w && !window->keys.s)
+	if (window->keys.w && !window->keys.d && !window->keys.a && !window->keys.s)
 	{
 		window->player_img.y -= window->player_img.speed;
 		if (window->mapa[window->player_img.y / 64] \
@@ -62,7 +64,7 @@ void	ft_update_up(t_window *window)
 
 void	ft_update_down(t_window *window)
 {
-	if (!window->keys.a && !window->keys.d && !window->keys.w && window->keys.s)
+	if (window->keys.s && !window->keys.d && !window->keys.w && !window->keys.a)
 	{
 		window->player_img.y += window->player_img.speed;
 		if (window->mapa[(window->player_img.y / 64)] \

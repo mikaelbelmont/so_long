@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:30:59 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/23 14:05:13 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:36:38 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ int	ft_move(t_window *window)
 
 int	ft_work(t_window *window)
 {
+	window->player_1_img.img = mlx_xpm_file_to_image \
+	(window->mlx, "./images/player_1.xpm", &window->player_1_img.width, \
+	&window->player_1_img.height);
+	window->player_2_img.img = mlx_xpm_file_to_image \
+	(window->mlx, "./images/player_2.xpm", &window->player_2_img.width, \
+	&window->player_2_img.height);
 	ft_wichside(window);
 	ft_move(window);
 	return (1);

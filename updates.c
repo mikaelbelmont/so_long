@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:30:33 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/22 15:40:59 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:14:55 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,14 @@ void	ft_initexit(t_window *window, char **mapa)
 				window->exit_img.x = j * 64;
 				window->exit_img.y = i * 64;
 				mlx_put_image_to_window(window->mlx, window->win, \
-				window->exit_img.img, window->exit_img.x, window->exit_img.y);
+			window->floor_img.img, window->exit_img.x, window->exit_img.y);
 				if (window->player_img.x == j * 64 \
 				&& window->player_img.y == i * 64)
 					if (window->collect_img.count == window->collect_img.n)
 						ft_end(window);
+				if (window->collect_img.count == window->collect_img.n)
+					mlx_put_image_to_window(window->mlx, window->win, \
+				window->exit_img.img, window->exit_img.x, window->exit_img.y);
 			}
 		}
 	}
