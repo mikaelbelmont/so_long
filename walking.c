@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:30:59 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/23 15:36:38 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:25:35 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	ft_move(t_window *window)
 	ft_printmap(window, window->mapa);
 	ft_initcollect(window, window->mapa);
 	ft_initexit(window, window->mapa);
+	ft_trapinit(window, window->mapa);
 	mlx_put_image_to_window(window->mlx, window->win, \
 	window->player_img.img, window->player_img.x, window->player_img.y);
 	return (1);

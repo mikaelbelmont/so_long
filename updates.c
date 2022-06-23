@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 15:30:33 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/23 15:14:55 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:26:12 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_validchar(t_window *window, char **mapa)
 		while (mapa[i][++j])
 		{
 			if (mapa[i][j] != 'P' && \
-			mapa[i][j] != 'E' && mapa[i][j] != 'C' && \
+			mapa[i][j] != 'E' && mapa[i][j] != 'C' && mapa[i][j] != 'T' && \
 			mapa[i][j] != '1' && mapa[i][j] != '0' && mapa[i][j] != '\n')
 			{
 				ft_printf("Map has a invalid char.");
@@ -97,6 +97,31 @@ int	ft_validchar(t_window *window, char **mapa)
 		}
 	}
 	window->x_winparam = i * 64;
-	window->y_winparam = j * 64;
+	window->y_winparam = (j * 64) - 64;
 	return (1);
+}
+
+void	ft_trapinit(t_window *window, char **mapa)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (mapa[++i])
+	{
+		j = -1;
+		while (mapa[i][++j])
+		{
+			if (mapa[i][j] == 'T')
+			{
+				window->exit_img.x = j * 64;
+				window->exit_img.y = i * 64;
+				mlx_put_image_to_window(window->mlx, window->win, \
+				window->exit_img.img, window->exit_img.x, window->exit_img.y);
+				if (window->player_img.x == j * 64 \
+					&& window->player_img.y == i * 64)
+					ft_end(window);
+			}
+		}
+	}
 }

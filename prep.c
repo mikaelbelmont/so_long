@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:22:13 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/22 15:41:04 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:55:38 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	ft_checkmapclosed(char **mapa)
 			if (mapa[iline][0] != '1')
 				return (0);
 		}
-		if (mapa[iline][jcol] != '1' && mapa[iline][jcol - 1] != '\n')
+		if (mapa[iline][jcol - 2] != '1')
 			return (0);
 	}
 	iline -= 1;

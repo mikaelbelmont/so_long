@@ -6,7 +6,7 @@
 /*   By: mbarreto <mbarreto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:38:51 by mbarreto          #+#    #+#             */
-/*   Updated: 2022/06/23 15:35:51 by mbarreto         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:41:07 by mbarreto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int			ft_stopwalking(int key, t_window *window);
 int			ft_move(t_window *window);
 void		ft_end(t_window *window);
 void		ft_movecount(t_window *window);
+void		ft_trapinit(t_window *window, char **mapa);
 
 void		ft_wichside(t_window *window);
 void		ft_update_right(t_window *window);
